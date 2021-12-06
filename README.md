@@ -34,4 +34,5 @@ De la misma manera para ejecutar el proyecto de node.
 
  ### Diagrama de Base de Datos
 ![](img/modelo2.png)
+
 ###End
