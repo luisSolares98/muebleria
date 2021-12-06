@@ -7,12 +7,15 @@ version de node 14.17.1
 antes de ejecurtar los proyectos
 no se olvide de ejecutar la Base Datos con el nombre muebleria y cambiar sus credenciales  "API/mySql/mySql.js"
 
-	connection = mysql.createConnection({
-                host: 'localhost',
-                user: 'root',
-                password: '',
-                database: 'muebleria'
-            });
+	function createInstance() {
+        instancia = mysql.createPool({
+            host: 'localhost',
+            user: 'root',
+            password: '',
+            database: 'muebleria'
+        });
+        return instancia;
+    }
 
 ejecute tambien el comando  para hacer las debidas importaciones tanto en la API y Frontend
 `npm install`
@@ -29,4 +32,6 @@ De la misma manera para ejecutar el proyecto de node.
  ### Diagrama UML del proyecto
 ![](img/modelo.png)
 
+ ### Diagrama de Base de Datos
+![](img/modelo2.png)
 ###End

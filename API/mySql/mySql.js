@@ -4,7 +4,7 @@ var SQL = (function() {
     var instancia;
 
     function createInstance() {
-        instancia = mysql.createConnection({
+        instancia = mysql.createPool({
             host: 'localhost',
             user: 'root',
             password: '',
