@@ -1,0 +1,68 @@
+<app-header [list]="true"></app-header>
+
+<div id="contenedor" class="container mt-3">
+    <h3>Listado de Diseños</h3>
+    <div class="row">
+
+        <div class="col-xl-3 col-md-4 col-sm-12 mt-3" *ngFor="let item of listCatalogo">
+            <div class="card">
+                <div class="card-body">
+                    <div>
+                        <h5 class="card-title" style="font-size: 15px;">{{item.nombre}}</h5>
+
+                        <p style="font-size: x-small;">
+                            {{item.precio}} Bs.
+                        </p>
+                    </div>
+
+                    <div class="row justify-content-between">
+                        <button title="comprar" (click)="open(content, item)" class="btn btn-outline-primary">
+                            <i class="bi bi-cart-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">{{compra.nombre}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+        <h4>Detalle</h4>
+        <div class="container">
+            <div class="d-flex" style="justify-content: space-between;">
+                <p>{{compra.nombre}}</p>
+                <p>{{compra.precio}}Bs</p>
+            </div>
+            <div class="d-flex" style="justify-content: space-between;" *ngFor="let item of compra.acabado">
+                <p>{{item.nombre}}</p>
+                <p>{{item.precio}}Bs</p>
+            </div>
+        </div>
+        <h4>Opciones de Acabados</h4>
+
+        <div class="container mt-3">
+            <div class="d-flex" style="justify-content: space-between;" *ngFor="let item of listAcabados">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" (change)="add(item)" [(ngModel)]="item.estado" id="check-{{item.id}}">
+                    <label class="form-check-label" for="check-{{item.id}}">
+                        {{item.nombre}} - 
+                        {{item.precio}}Bs
+                    </label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        Precio Total del Mueble {{compra.precioTotal}}Bs.
+        <button type="button" class="btn btn-outline-dark" (click)="insert(modal)">Save</button>
+    </div>
+</ng-template>
