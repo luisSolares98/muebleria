@@ -1,4 +1,4 @@
-### Editor de Personajes
+### Muebleria
 ---
 Proyecto realizado en Angular y Node.
 version de Angular_cli 12.0.4
